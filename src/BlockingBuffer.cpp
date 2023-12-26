@@ -129,5 +129,10 @@ int BlockingBuffer::popOdd() {
 void BlockingBuffer::fill() {
     for (int i = 0; i < 30; ++i) {
         buffer.push(i);
+        if (i % 2 == 0) {
+            evenCount++;
+        } else {
+            oddCount++;
+        }
     }
 }
