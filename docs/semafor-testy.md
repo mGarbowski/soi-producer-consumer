@@ -4,7 +4,7 @@
 * Przyjąłem, że pełny bufor oznacza zapełniony liczbami od 0 do 29
 
 
-### `./main 1 0 0 0 empty`
+### `./cmake-build-debug/semaphores-app 1 0 0 0 empty`
 ```
 Starting with:
 - 1 even producer threads:
@@ -26,7 +26,7 @@ PE [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, ]
 
 ```
 
-### `./main 1 0 0 0 full`
+### `./cmake-build-debug/semaphores-app 1 0 0 0 full`
 ```
 Starting with:
 - 1 even producer threads:
@@ -38,7 +38,7 @@ Initial buffer state:
 
 ```
 
-### `./main 0 1 0 0 empty`
+### `./cmake-build-debug/semaphores-app 0 1 0 0 empty`
 
 ```
 Starting with:
@@ -51,7 +51,7 @@ Initial buffer state:
 
 ```
 
-### `./main 0 1 0 0 full`
+### `./cmake-build-debug/semaphores-app 0 1 0 0 full`
 
 ```
 Starting with:
@@ -64,7 +64,7 @@ Initial buffer state:
 
 ```
 
-### `./main 0 0 1 0 empty`
+### `./cmake-build-debug/semaphores-app 0 0 1 0 empty`
 ```
 Starting with:
 - 0 even producer threads:
@@ -76,7 +76,7 @@ Initial buffer state:
 
 ```
 
-### `./main 0 0 1 0 full`
+### `./cmake-build-debug/semaphores-app 0 0 1 0 full`
 ```
 Starting with:
 - 0 even producer threads:
@@ -89,7 +89,7 @@ CE [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 2
 
 ```
 
-### ` ./main 0 0 0 1 empty`
+### ` ./cmake-build-debug/semaphores-app 0 0 0 1 empty`
 ```
 Starting with:
 - 0 even producer threads:
@@ -101,7 +101,7 @@ Initial buffer state:
 
 ```
 
-### `./main 0 0 0 1 full`
+### `./cmake-build-debug/semaphores-app 0 0 0 1 full`
 ```
 Starting with:
 - 0 even producer threads:
@@ -113,7 +113,7 @@ Initial buffer state:
 
 ```
 
-### `./main 1 1 0 0 empty`
+### `./cmake-build-debug/semaphores-app 1 1 0 0 empty`
 
 ```
 Starting with:
@@ -147,7 +147,7 @@ PO [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, ]
 ```
 
 
-### `./main 1 1 0 0 full`
+### `./cmake-build-debug/semaphores-app 1 1 0 0 full`
 ```
 Starting with:
 - 1 even producer threads:
@@ -160,7 +160,7 @@ Initial buffer state:
 ```
 
 
-### `./main 0 0 1 1 empty`
+### `./cmake-build-debug/semaphores-app 0 0 1 1 empty`
 ```
 Starting with:
 - 0 even producer threads:
@@ -172,7 +172,7 @@ Initial buffer state:
 
 ```
 
-### `./main 0 0 1 1 full`
+### `./cmake-build-debug/semaphores-app 0 0 1 1 full`
 ```
 Starting with:
 - 0 even producer threads:
@@ -209,7 +209,7 @@ CE [25, 26, 27, 28, 29, ]
 
 ```
 
-### `./main 1 0 1 0 empty`
+### `./cmake-build-debug/semaphores-app 1 0 1 0 empty`
 ```
 Starting with:
 - 1 even producer threads:
@@ -256,7 +256,7 @@ CE [34, 36, ]
 
 ```
 
-### `./main 1 0 1 0 full`
+### `./cmake-build-debug/semaphores-app 1 0 1 0 full`
 ```
 Starting with:
 - 1 even producer threads:
@@ -270,7 +270,7 @@ CE [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 2
 ```
 
 
-### `./main 0 1 0 1 empty`
+### `./cmake-build-debug/semaphores-app 0 1 0 1 empty`
 ```
 Starting with:
 - 0 even producer threads:
@@ -282,7 +282,7 @@ Initial buffer state:
 
 ```
 
-### `./main 0 1 0 1 full`
+### `./cmake-build-debug/semaphores-app 0 1 0 1 full`
 ```
 Starting with:
 - 0 even producer threads:
@@ -294,7 +294,7 @@ Initial buffer state:
 
 ```
 
-### `./main 1 1 1 1 empty`
+### `./cmake-build-debug/semaphores-app 1 1 1 1 empty`
 ```
 Starting with:
 - 1 even producer threads:
@@ -397,7 +397,7 @@ CO [48, 41, 0, 43, 2, 45, ]
 
 ```
 
-### `./main 1 1 1 1 full`
+### `./cmake-build-debug/semaphores-app 1 1 1 1 full`
 ```
 Starting with:
 - 1 even producer threads:
@@ -540,7 +540,7 @@ PO [42, 43, 44, 45, 46, 47, 48, 49, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ]
 
 ```
 
-### `./main 2 2 2 2 empty`
+### `./cmake-build-debug/semaphores-app 2 2 2 2 empty`
 ```
 Starting with:
 - 2 even producer threads:
@@ -649,7 +649,7 @@ CE [43, 2, 4, 45, 47, 6, ]
 
 ```
 
-### `./main 2 2 2 2 full`
+### `./cmake-build-debug/semaphores-app 2 2 2 2 full`
 ```
 Starting with:
 - 2 even producer threads:
