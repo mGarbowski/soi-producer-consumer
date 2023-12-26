@@ -5,7 +5,7 @@
 #ifndef SOI_PRODUCER_CONSUMER_BLOCKINGBUFFER_H
 #define SOI_PRODUCER_CONSUMER_BLOCKINGBUFFER_H
 
-#include "monitor.h"
+#include "utils.h"
 #include <queue>
 #include <stdexcept>
 

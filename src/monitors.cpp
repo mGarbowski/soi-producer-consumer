@@ -5,14 +5,12 @@
 #include <unistd.h>
 #include "BlockingBuffer.h"
 #include "ThreadGroup.h"
+#include "common.h"
 
-#define SLEEP_USECONDS 100000
-#define FULL "full"
-#define EMPTY "empty"
 BlockingBuffer buffer;
 
 
-[[noreturn]] void *evenProducer(void*) {
+[[noreturn]] void *evenProducer(void *) {
     int number = 0;
     while (true) {
         buffer.putEven(number);
@@ -21,23 +19,23 @@ BlockingBuffer buffer;
     }
 }
 
-[[noreturn]] void *oddProducer(void*) {
+[[noreturn]] void *oddProducer(void *) {
     int number = 1;
-    while(true) {
+    while (true) {
         buffer.putOdd(number);
         number = (number + 2) % 50;
         usleep(SLEEP_USECONDS);
     }
 }
 
-[[noreturn]] void *evenConsumer(void*) {
+[[noreturn]] void *evenConsumer(void *) {
     while (true) {
         buffer.popEven();
         usleep(SLEEP_USECONDS);
     }
 }
 
-[[noreturn]] void *oddConsumer(void*) {
+[[noreturn]] void *oddConsumer(void *) {
     while (true) {
         buffer.popOdd();
         usleep(SLEEP_USECONDS);

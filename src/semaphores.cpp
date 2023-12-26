@@ -1,12 +1,9 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
-#include "monitor.h"
+#include "utils.h"
 #include "ThreadGroup.h"
-
-#define SLEEP_USECONDS 100000
-#define FULL "full"
-#define EMPTY "empty"
+#include "common.h"
+#include "SimpleBuffer.h"
 
 unsigned int numOfProdEvenWaiting = 0;
 unsigned int numOfProdOddWaiting = 0;
@@ -22,60 +19,8 @@ Semaphore consOddSem(0);
 int lastEven = 0;
 int lastOdd = 1;
 
-class FifoBuffer {
-private:
-    std::vector<int> buffer;
-public:
-    FifoBuffer() = default;
 
-    size_t countEven() {
-        return std::count_if(
-                this->buffer.begin(), this->buffer.end(),
-                [](int number) { return number % 2 == 0; }
-        );
-    }
-
-    size_t countOdd() {
-        return std::count_if(
-                this->buffer.begin(), this->buffer.end(),
-                [](int number) { return number % 2 != 0; }
-        );
-    }
-
-    size_t countAll() {
-        return this->buffer.size();
-    }
-
-    void push(int number) {
-        this->buffer.push_back(number);
-    }
-
-    int pop() {
-        auto value = this->buffer[0];
-        this->buffer.erase(this->buffer.begin());
-        return value;
-    }
-
-    int peek() {
-        return this->buffer[0];
-    }
-
-    void fill() {
-        for (int i = 0; i < 30; ++i) {
-            buffer.push_back(i);
-        }
-    }
-
-    void print(const std::string &prefix) {
-        std::cout << prefix << " [";
-        for (auto num: this->buffer) {
-            std::cout << num << ", ";
-        }
-        std::cout << "]" << std::endl;
-    }
-};
-
-FifoBuffer buffer;
+SimpleBuffer buffer;
 
 bool canProdEven() {
     return buffer.countEven() < 10;
@@ -103,7 +48,7 @@ int nextOdd() {
     return lastOdd;
 }
 
-[[noreturn]] void *prodEven(void *args) {
+[[noreturn]] void *prodEven(void *) {
     while (true) {
         mutex.p();
 
@@ -131,7 +76,7 @@ int nextOdd() {
     }
 }
 
-[[noreturn]] void *prodOdd(void *args) {
+[[noreturn]] void *prodOdd(void *) {
     while (true) {
         mutex.p();
 
@@ -159,7 +104,7 @@ int nextOdd() {
     }
 }
 
-[[noreturn]] void *consEven(void *args) {
+[[noreturn]] void *consEven(void *) {
     while (true) {
         mutex.p();
 
@@ -187,7 +132,7 @@ int nextOdd() {
     }
 }
 
-[[noreturn]] void *consOdd(void *args) {
+[[noreturn]] void *consOdd(void *) {
     while (true) {
         mutex.p();
 
