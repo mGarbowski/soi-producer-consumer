@@ -39,6 +39,8 @@ public:
     int popEven();
 
     int popOdd();
+
+    void fill();
 };
 
 

@@ -7,6 +7,8 @@
 #include "ThreadGroup.h"
 
 #define SLEEP_USECONDS 100000
+#define FULL "full"
+#define EMPTY "empty"
 BlockingBuffer buffer;
 
 
@@ -43,19 +45,19 @@ BlockingBuffer buffer;
 }
 
 int main(int argc, char *argv[]) {
-    if (argc != 5) {
+    if (argc != 6) {
         std::cerr << "Invalid arguments" << std::endl;
         return 1;
     }
 
-//    std::string initialBufferState = argv[5];
-//    if (initialBufferState != EMPTY && initialBufferState != FULL) {
-//        std::cerr << "Invalid arguments" << std::endl;
-//        return 1;
-//    }
-//    if (initialBufferState == FULL) {
-//        buffer.fill();
-//    }
+    std::string initialBufferState = argv[5];
+    if (initialBufferState != EMPTY && initialBufferState != FULL) {
+        std::cerr << "Invalid arguments" << std::endl;
+        return 1;
+    }
+    if (initialBufferState == FULL) {
+        buffer.fill();
+    }
 
     std::vector<ThreadGroup> threadGroups = {
             ThreadGroup(std::stoi(argv[1]), evenProducer),
