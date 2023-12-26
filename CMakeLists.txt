@@ -12,3 +12,4 @@ set(COMMON_SOURCES
 )
 
 add_executable(semaphores-app src/semaphores.cpp ${COMMON_SOURCES})
+add_executable(monitors-app src/monitors.cpp src/BlockingBuffer.h src/BlockingBuffer.cpp ${COMMON_SOURCES})
