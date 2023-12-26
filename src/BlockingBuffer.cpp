@@ -47,9 +47,9 @@ void BlockingBuffer::putEven(int element) {
         signal(consOddCond);
     } else if (consEvenCond.getWaitingCount() && canConsEven()) {
         signal(consEvenCond);
-    } else {
-        leave();
     }
+
+    leave();
 }
 
 void BlockingBuffer::putOdd(int element) {
@@ -73,9 +73,9 @@ void BlockingBuffer::putOdd(int element) {
         signal(consOddCond);
     } else if (consEvenCond.getWaitingCount() && canConsEven()) {
         signal(consEvenCond);
-    } else {
-        leave();
     }
+
+    leave();
 }
 
 int BlockingBuffer::popEven() {
@@ -96,10 +96,9 @@ int BlockingBuffer::popEven() {
         signal(prodOddCond);
     } else if (consOddCond.getWaitingCount() && canConsOdd()) {
         signal(consOddCond);
-    } else {
-        leave();
     }
 
+    leave();
     return element;
 }
 
@@ -121,10 +120,9 @@ int BlockingBuffer::popOdd() {
         signal(prodOddCond);
     } else if (consEvenCond.getWaitingCount() && canConsEven()) {
         signal(consEvenCond);
-    } else {
-        leave();
     }
 
+    leave();
     return element;
 }
 
